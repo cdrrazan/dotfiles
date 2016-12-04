@@ -22,10 +22,10 @@ cp -r i3lock-fancy-multimonitor ~/.i3
 chmod +x ~/.i3/i3lock-fancy-multimonitor/lock
 ```
 
-Create a key binding on your i3 config file (in this example I'm using $mod+p):
+Create a key binding on your i3 config file (in this example I'm using $mod+shift+m):
 
 ```
-echo "bindsym \$mod+p exec /home/<your username>/.i3/i3lock-fancy-multimonitor/lock" >> ~/.i3/config
+echo "bindsym \$mod+shift+m exec /home/<your username>/.i3/i3lock-fancy-multimonitor/lock" >> ~/.i3/config
 ```
 
 Now reload the i3 configuration file. By default, the key binding is `$mod+Shift+c`.
