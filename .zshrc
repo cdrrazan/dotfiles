@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="arrow"
+ZSH_THEME="zeit"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,10 +29,10 @@ ZSH_THEME="arrow"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -92,3 +92,27 @@ alias logout='pkill -u cdrrazan'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+#Application  alias
+source /home/cdrrazan/Documents/Codes/playtv.sh
+export EDITOR="subl -w"
+alias dolphin='google-chrome mavlab.dev.mavorion.com --kiosk -kiosk-printing'
+
+#Command Alias
+function gitup() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
+export NVM_DIR="/home/cdrrazan/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$PATH"
+RPROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
+alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
+source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
