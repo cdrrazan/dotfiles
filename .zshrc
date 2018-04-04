@@ -29,10 +29,10 @@ ZSH_THEME="zeit"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -84,19 +84,35 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+#Volume-Config
 alias uvolup='amixer -D pulse sset Master 5%+'
 alias dvoldw='amixer -D pulse sset Master 5%-'
+
+#App Shortcut
 alias viber='/opt/viber/Viber'
+alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
+
+
+#System Alias
+alias update="sudo apt-get -y update"
+alias upgrade="sudo apt-get upgrade"
+alias search="sudo apt-cache search"
 alias logout='pkill -u cdrrazan'
+alias hidden="ls -al"
+alias c="clear"
+alias up="cd .."
+alias home="cd ~"
+alias root="cd /"
 
+
+# Path-Export
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
-#Application  alias
-source /home/cdrrazan/Documents/Codes/playtv.sh
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.yarn/bin:$PATH"
+
+
 export EDITOR="subl -w"
-alias dolphin='google-chrome mavlab.dev.mavorion.com --kiosk -kiosk-printing'
 
 #Command Alias
 function gitup() {
@@ -104,15 +120,26 @@ function gitup() {
     git commit -a -m "$1"
     git push
 }
+source /home/cdrrazan/.oh-my-git/prompt.sh
+
+
+# Terminal-Config
 
 export NVM_DIR="/home/cdrrazan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH="$HOME/.yarn/bin:$PATH"
-RPROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
-alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
-source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
+
 [[ -f /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+
+#System Deployment
+alias heroku-deploy="git push heroku master && heroku run rake db:migrate && heroku restart"
+
+
+#initialize Z (https://github.com/rupa/z) 
+. ~/Documents/Programs/Setup/z.sh 
+
