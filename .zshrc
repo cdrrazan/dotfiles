@@ -105,22 +105,29 @@ alias home="cd ~"
 alias root="cd /"
 
 
+#Web Development Alias
+alias bers="bundle exec rails spec"
+
+#Custom Program Alias
+alias keep=".~/.gkeep/Keep"
 # Path-Export
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.yarn/bin:$PATH"
 
+# Custom Paths
 
+export PATH="$PATH:$HOME/learnenough/ruby/shell/"
 export EDITOR="subl -w"
 
 #Command Alias
 function gitup() {
     git add .
     git commit -a -m "$1"
-    git push
+    git push origin master
 }
-source /home/cdrrazan/.oh-my-git/prompt.sh
+#source /home/cdrrazan/.oh-my-git/prompt.sh
 
 
 # Terminal-Config
@@ -141,5 +148,9 @@ alias heroku-deploy="git push heroku master && heroku run rake db:migrate && her
 
 
 #initialize Z (https://github.com/rupa/z) 
-. ~/Documents/Programs/Setup/z.sh 
+#. ~/.oh-my-zsh/plugins/z/z.sh 
 
+source /home/cdrrazan/.oh-my-git/prompt.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+# Load RVM into a shell session *as a function*
