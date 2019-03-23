@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="zeit"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -96,6 +96,9 @@ alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:t
 #System Alias
 alias update="sudo apt-get -y update"
 alias upgrade="sudo apt-get upgrade"
+alias dist-y="sudo apt-get dist-upgrade"
+alias clean="sudo apt-get autoclean"
+alias remove="sudo apt-get autoremove"
 alias search="sudo apt-cache search"
 alias logout='pkill -u cdrrazan'
 alias hidden="ls -al"
@@ -104,12 +107,19 @@ alias up="cd .."
 alias home="cd ~"
 alias root="cd /"
 
+# i3-backlash
+alias 100="brightness 275"
 
 #Web Development Alias
-alias bers="bundle exec rails spec"
+alias r="bin/rspec --format documentation"
+alias bers="bundle exec rspec"
+alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 
 #Custom Program Alias
-alias keep=".~/.gkeep/Keep"
+alias keep="zsh .~/.gkeep/Keep"
+alias joplin="./.joplin.sh"
+#alias docker="sudo docker"
+
 # Path-Export
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 
@@ -127,8 +137,14 @@ function gitup() {
     git commit -a -m "$1"
     git push origin master
 }
-#source /home/cdrrazan/.oh-my-git/prompt.sh
 
+source /home/cdrrazan/.oh-my-git/prompt.sh
+
+# automatically make directory and enter inside it
+
+function md() {
+	mkdir -p "$@" && $_;
+}
 
 # Terminal-Config
 
@@ -148,9 +164,15 @@ alias heroku-deploy="git push heroku master && heroku run rake db:migrate && her
 
 
 #initialize Z (https://github.com/rupa/z) 
-#. ~/.oh-my-zsh/plugins/z/z.sh 
-
+. ~/.z.sh
 source /home/cdrrazan/.oh-my-git/prompt.sh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 # Load RVM into a shell session *as a function*
+
+PATH="/home/cdrrazan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/cdrrazan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/cdrrazan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/cdrrazan/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/cdrrazan/perl5"; export PERL_MM_OPT;
+alias msql=mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724
