@@ -84,7 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#System 
+# System Config
+# Volume
+alias uvolup='amixer -D pulse sset Master 5%+'
+alias dvoldw='amixer -D pulse sset Master 5%-'
+
+# Brightness
+alias 100="brightness 275"
+
+# System Command Alias
 alias update="sudo apt-get -y update"
 alias upgrade="sudo apt-get upgrade"
 alias dist-y="sudo apt-get dist-upgrade"
@@ -98,70 +106,66 @@ alias up="cd .."
 alias home="cd ~"
 alias root="cd /"
 
-# Terminal-Config
+# Terminal Config
 export NVM_DIR="/home/cdrrazan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
-#Initialize Z (https://github.com/rupa/z) 
+# Initialize Z (https://github.com/rupa/z) 
 . ~/.z.sh
-source /home/cdrrazan/.oh-my-git/prompt.sh
 
-#NODEJS
+# NodeJS
 [[ -f /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+
+# Spaceship zsh theme
 source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
-#Volume-Config
-alias uvolup='amixer -D pulse sset Master 5%+'
-alias dvoldw='amixer -D pulse sset Master 5%-'
-
-#Brightness
-alias 100="brightness 275"
-
-#Git
+# GIT
+# gitup
 function gitup() {
     git add .
     git commit -a -m "$1"
     git push origin master
 }
 
-#oh-my-git
+# oh-my-git
 source /home/cdrrazan/.oh-my-git/prompt.sh
 
-#Apps
+# Apps
 alias viber='/opt/viber/Viber'
 alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
 
-#Custom Program
+# Custom Program
 alias keep="zsh .~/.gkeep/Keep"
 alias joplin="./.joplin.sh"
 
+# Custom Command
 #Make dir and cd into it.
 function md() {
 	mkdir -p "$@" && $_;
 }
 
-#Web Development Alias
+# Web Development Alias
 alias r="bin/rspec --format documentation"
 alias bers="bundle exec rspec"
 alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 
-#System Deployment
+# Web App Deployment
 alias heroku-deploy="git push heroku master && heroku run rake db:migrate && heroku restart"
 
-#Path-Export
-#Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Path-Export
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.yarn/bin:$PATH"
 
-#Custom Paths
+# Custom Paths
 export PATH="$PATH:$HOME/learnenough/ruby/shell/"
 export EDITOR="subl -w"
 
-#Load RVM into a shell session *as a function*
+# Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-#Custom MySQL Sandbox
+# Custom MySQL Sandbox
 PATH="/home/cdrrazan/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/cdrrazan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/cdrrazan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
@@ -169,7 +173,7 @@ PERL_MB_OPT="--install_base \"/home/cdrrazan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/cdrrazan/perl5"; export PERL_MM_OPT;
 alias msql=mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724
 
-#VIPS for Image Processing
+# VIPS for Image Processing
 export VIPSHOME=/usr/local
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$VIPSHOME/lib
 export PATH=$PATH:$VIPSHOME/bin
