@@ -111,6 +111,9 @@ export NVM_DIR="/home/cdrrazan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
+# TheFUCK 
+eval $(thefuck --alias FUCK)
+
 # Initialize Z (https://github.com/rupa/z) 
 . ~/.z.sh
 
@@ -128,12 +131,18 @@ function gitup() {
     git push origin master
 }
 
+# gitco 
+function gitco() { 
+    git add .
+    git commit -a -m "$1"
+}
+
 # oh-my-git
 source /home/cdrrazan/.oh-my-git/prompt.sh
 
 # Apps
 alias viber='/opt/viber/Viber'
-alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
+# alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
 
 # Custom Program
 alias keep="zsh .~/.gkeep/Keep"
@@ -146,11 +155,16 @@ function md() {
 }
 
 # Web Development Alias
+# Ruby on Rails
 alias r="bin/rspec --format documentation"
 alias bers="bundle exec rspec"
+
+# MySQL
+# Custom MySQL Sandbox
 alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 
 # Web App Deployment
+# Heroku
 alias heroku-deploy="git push heroku master && heroku run rake db:migrate && heroku restart"
 
 # Path-Export
@@ -180,3 +194,5 @@ export PATH=$PATH:$VIPSHOME/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$VIPSHOME/lib/pkgconfig
 export MANPATH=$MANPATH:$VIPSHOME/man
 export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
+
+eval $(thefuck --alias)
