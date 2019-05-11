@@ -114,9 +114,26 @@ PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
 # TheFUCK 
 eval $(thefuck --alias FUCK)
+eval $(thefuck --alias)
+
+# fzf alias
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#aliasme.
+source ~/.aliasme/aliasme.sh
 
 # Initialize Z (https://github.com/rupa/z) 
 . ~/.z.sh
+
+# ColorLS
+alias lc='colorls --sd'
+
+# Shell History
+# only load it for interactive shells
+if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
+    . $(shellhistory-location)
+    shellhistory enable
+fi
 
 # NodeJS
 [[ -f /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
@@ -140,6 +157,9 @@ function gitco() {
 
 # oh-my-git
 source /home/cdrrazan/.oh-my-git/prompt.sh
+
+# git-extra-commands
+plugins=( ... git-extra-commands )
 
 # Apps
 alias viber='/opt/viber/Viber'
@@ -180,6 +200,15 @@ export EDITOR="subl -w"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
+# ASDF VM
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+# Go Lang Path
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 # Custom MySQL Sandbox
 PATH="/home/cdrrazan/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/cdrrazan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -195,5 +224,3 @@ export PATH=$PATH:$VIPSHOME/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$VIPSHOME/lib/pkgconfig
 export MANPATH=$MANPATH:$VIPSHOME/man
 export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
-
-eval $(thefuck --alias)
