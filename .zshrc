@@ -86,12 +86,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # System Config
-# Volume
+# brightness
+alias 100="brightness 275"
+
+# volume
 alias uvolup='amixer -D pulse sset Master 5%+'
 alias dvoldw='amixer -D pulse sset Master 5%-'
-
-# Brightness
-alias 100="brightness 275"
 
 # System Command Alias
 alias update="sudo apt-get -y update"
@@ -112,21 +112,20 @@ export NVM_DIR="/home/cdrrazan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
-# TheFUCK 
-eval $(thefuck --alias FUCK)
-eval $(thefuck --alias)
+# aliasme.
+source ~/.aliasme/aliasme.sh
 
 # fzf alias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#aliasme.
-source ~/.aliasme/aliasme.sh
+# colorLS
+alias lc='colorls --sd'
 
-# Initialize Z (https://github.com/rupa/z) 
+# initialize Z (https://github.com/rupa/z) 
 . ~/.z.sh
 
-# ColorLS
-alias lc='colorls --sd'
+# nodejs
+[[ -f /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
 # Shell History
 # only load it for interactive shells
@@ -135,13 +134,19 @@ if [[ $- == *i* ]] && command -v shellhistory-location &>/dev/null; then
     shellhistory enable
 fi
 
-# NodeJS
-[[ -f /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cdrrazan/.nvm/versions/node/v9.1.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
-
-# Spaceship zsh theme
+# spaceship zsh theme
 source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
+# theFUCK 
+eval $(thefuck --alias FUCK)
+
 # GIT
+# gitco 
+function gitco() { 
+    git add .
+    git commit -a -m "$1"
+}
+
 # gitup
 function gitup() {
     git add .
@@ -149,73 +154,81 @@ function gitup() {
     git push origin master
 }
 
-# gitco 
-function gitco() { 
-    git add .
-    git commit -a -m "$1"
-}
-
-# oh-my-git
-source /home/cdrrazan/.oh-my-git/prompt.sh
+# git aliases
+alias gl='git pull --prune'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gp='git push origin HEAD'
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gcb='git copy-branch-name'
+alias gb='git branch'
+alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gac='git add -A && git commit -m'
+alias ge='git-edit-new'
 
 # git-extra-commands
 plugins=( ... git-extra-commands )
 
+# oh-my-git
+source /home/cdrrazan/.oh-my-git/prompt.sh
+
 # Apps
 alias viber='/opt/viber/Viber'
 # alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
+alias retro="~/.config/cool-retro-term/cool-retro-term"
+
+# Custom Command
+# make dir and cd into it.
+function md() {
+	mkdir -p "$@" && $_;
+}
 
 # Custom Program
 alias keep="zsh .~/.gkeep/Keep"
 alias joplin="./.joplin.sh"
 
-# Custom Command
-#Make dir and cd into it.
-function md() {
-	mkdir -p "$@" && $_;
-}
+# Web App Development
+# MySQL Sandbox
+alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 
-# Web Development Alias
 # Ruby on Rails
 alias r="bin/rspec --format documentation"
 alias bers="bundle exec rspec"
-
-# MySQL
-# Custom MySQL Sandbox
-alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 
 # Web App Deployment
 # Heroku
 alias heroku-deploy="git push heroku master && heroku run rake db:migrate && heroku restart"
 
 # Path-Export
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$HOME/.yarn/bin:$PATH"
-
 # Custom Paths
 export PATH="$PATH:$HOME/learnenough/ruby/shell/"
 export EDITOR="subl -w"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # ASDF VM
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# Go Lang Path
+# GoLang Path
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-# Custom MySQL Sandbox
+# MySQL Sandbox
 PATH="/home/cdrrazan/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/cdrrazan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/cdrrazan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/cdrrazan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/cdrrazan/perl5"; export PERL_MM_OPT;
 alias msql=mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$HOME/.yarn/bin:$PATH"
+
+# RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # VIPS for Image Processing
 export VIPSHOME=/usr/local
