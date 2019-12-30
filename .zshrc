@@ -198,6 +198,9 @@ function md() {
 #alias slacky="slackadaisical"
 
 # Web App Development
+# Jetbrains RubyMine
+alias mine="~/.local/bin/rubymine"
+
 # MySQL Sandbox
 alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 
