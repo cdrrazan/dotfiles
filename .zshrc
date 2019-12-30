@@ -116,7 +116,7 @@ PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
  source ~/.aliasme/aliasme.sh
 
 # fzf alias
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # colorLS
 alias lc='colorls --sd'
@@ -146,6 +146,8 @@ eval $(thefuck --alias fuck)
 #fi
 
 source ~/.commacd.sh
+
+source ~/.enhancd/init.sh
 
 # GIT
 # gitco 
@@ -213,8 +215,8 @@ export PATH="$PATH:$HOME/learnenough/ruby/shell/"
 export EDITOR="subl -w"
 
 # ASDF VM
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 #eval $(thefuck --alias)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -247,3 +249,7 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$VIPSHOME/lib/pkgconfig
 export MANPATH=$MANPATH:$VIPSHOME/man
 export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
 
+
+# Initialise zulu plugin manager
+#source "${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
+#zulu init
