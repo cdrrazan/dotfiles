@@ -113,7 +113,7 @@ export NVM_DIR="/home/cdrrazan/.nvm"
 PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
 # aliasme.
-source ~/.aliasme/aliasme.sh
+ source ~/.aliasme/aliasme.sh
 
 # fzf alias
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -138,7 +138,14 @@ fi
 source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
 # theFUCK 
-eval $(thefuck --alias FUCK)
+eval $(thefuck --alias fuck)
+
+### Bashhub.com Installation
+#if [ -f ~/.bashhub/bashhub.zsh ]; then
+#    source ~/.bashhub/bashhub.zsh
+#fi
+
+source ~/.commacd.sh
 
 # GIT
 # gitco 
@@ -170,7 +177,7 @@ alias gac='git add -A && git commit -m'
 plugins=( ... git-extra-commands )
 
 # oh-my-git
-source /home/cdrrazan/.oh-my-git/prompt.sh
+# source /home/cdrrazan/.oh-my-git/prompt.sh
 
 # Apps
 alias viber='/opt/viber/Viber'
@@ -184,9 +191,9 @@ function md() {
 }
 
 # Custom Program
-alias keep="zsh .~/.gkeep/Keep"
-alias joplin="./.joplin.sh"
-alias slacky="slackadaisical"
+#alias keep="zsh .~/.gkeep/Keep"
+#alias joplin="./.joplin.sh"
+#alias slacky="slackadaisical"
 
 # Web App Development
 # MySQL Sandbox
@@ -208,6 +215,9 @@ export EDITOR="subl -w"
 # ASDF VM
 #. $HOME/.asdf/asdf.sh
 #. $HOME/.asdf/completions/asdf.bash
+
+#eval $(thefuck --alias)
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # GoLang Path
 export GOROOT=/usr/local/go
@@ -237,4 +247,3 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$VIPSHOME/lib/pkgconfig
 export MANPATH=$MANPATH:$VIPSHOME/man
 export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
 
-eval $(thefuck --alias)
