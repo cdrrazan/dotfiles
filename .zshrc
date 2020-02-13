@@ -107,13 +107,16 @@ alias up="cd .."
 alias home="cd ~"
 alias root="cd /"
 
+alias full-update="/home/cdrrazan/Documents/Codes/Script/update.sh"
+alias disk-mount="/home/cdrrazan/Documents/Codes/Script/disk.sh"
+
 # Terminal Config
 export NVM_DIR="/home/cdrrazan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
 
 # aliasme.
- source ~/.aliasme/aliasme.sh
+source ~/.aliasme/aliasme.sh
 
 # fzf alias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -174,6 +177,8 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git add -A && git commit -m'
+alias gcf='git log --pretty= --committer=cdrrazan --name-only  | sort -u'
+alias gca='git log --author=cdrrazan'
 
 # git-extra-commands
 plugins=( ... git-extra-commands )
@@ -184,7 +189,7 @@ plugins=( ... git-extra-commands )
 # Apps
 alias viber='/opt/viber/Viber'
 # alias atom='atom.commands.dispatch(atom.views.getView(atom.workspace), 'window:toggle-full-screen')'
-alias retro="~/.config/cool-retro-term/cool-retro-term"
+alias retro="~/Downloads/Programs/Misc/Cool-Retro-Term-1.1.1-x86_64.AppImage & disown"
 
 # Custom Command
 # make dir and cd into it.
@@ -196,6 +201,7 @@ function md() {
 #alias keep="zsh .~/.gkeep/Keep"
 #alias joplin="./.joplin.sh"
 #alias slacky="slackadaisical"
+alias trello="/opt/trello/Trello & disown"
 
 # Web App Development
 # Jetbrains RubyMine
@@ -252,7 +258,11 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$VIPSHOME/lib/pkgconfig
 export MANPATH=$MANPATH:$VIPSHOME/man
 export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
 
-
 # Initialise zulu plugin manager
-#source "${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
-#zulu init
+# source "${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"
+# zulu init
+
+# xrandr function
+alias monitor="xrandr --output HDMI-0 --scale 1.25x1.25"
+alias display-x="xrandr --dpi 120"
+alias brightness="xrandr --output eDP-1-1 --brightness 0.5"
