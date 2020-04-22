@@ -180,6 +180,9 @@ alias gac='git add -A && git commit -m'
 alias gcf='git log --pretty= --committer=cdrrazan --name-only  | sort -u'
 alias gca='git log --author=cdrrazan'
 
+# custom git aliases
+alias gdf="git diff --dirstat=files,0 HEAD~1 | sed 's/^[ 0-9.]\+% //g'"
+
 # git-extra-commands
 plugins=( ... git-extra-commands )
 
@@ -266,3 +269,13 @@ export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
 alias monitor="xrandr --output HDMI-0 --scale 1.25x1.25"
 alias display-x="xrandr --dpi 120"
 alias brightness="xrandr --output eDP-1-1 --brightness 0.5"
+
+# SERVER SH
+alias alpha="rails s"
+alias delta="rails s -p 3001"
+alias foxtrot="rails s -p 3002"
+alias zulu="rails s -p 3003"
+
+# Temporary Alias
+alias rs="git checkout master && rvm use 2.3.1 && rails s"
+alias rr="git checkout rb-upgrade-version && rvm use 2.6.5 && rails s"
