@@ -1,0 +1,5 @@
+pane	0	1	:Viber	0	:-	1	:/opt/viber	1	Viber	:/opt/viber/Viber
+pane	0	2	:zsh	1	:*	1	:/home/cdrrazan	1	zsh	:
+window	0	1	0	:-	c47d,146x36,0,0,0
+window	0	2	1	:*	c47e,146x36,0,0,1
+state	0	

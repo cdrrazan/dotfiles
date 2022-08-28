@@ -26,7 +26,7 @@ ZSH_THEME="spaceship"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+ DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -113,7 +113,9 @@ alias disk-mount="/home/cdrrazan/Documents/Codes/Script/disk.sh"
 # Terminal Config
 export NVM_DIR="/home/cdrrazan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
+# PROMPT="\$(~/.rvm/bin/rvm-prompt s i v g)%{$fg[yellow]%}[%*]"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # aliasme.
 source ~/.aliasme/aliasme.sh
@@ -124,7 +126,7 @@ source ~/.aliasme/aliasme.sh
 # colorLS
 alias lc='colorls --sd'
 
-# initialize Z (https://github.com/rupa/z) 
+# initialize Z (https://github.com/rupa/z)
 . ~/.z.sh
 
 # nodejs
@@ -140,7 +142,7 @@ fi
 # spaceship zsh theme
 source "/home/cdrrazan/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 
-# theFUCK 
+# theFUCK
 eval $(thefuck --alias fuck)
 
 ### Bashhub.com Installation
@@ -150,11 +152,11 @@ eval $(thefuck --alias fuck)
 
 source ~/.commacd.sh
 
-source ~/.enhancd/init.sh
+#source ~/.enhancd/init.sh
 
 # GIT
-# gitco 
-function gitco() { 
+# gitco
+function gitco() {
     git add .
     git commit -a -m "$1"
 }
@@ -217,6 +219,24 @@ alias msql="mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724"
 alias r="bin/rspec --format documentation"
 alias bers="bundle exec rspec"
 
+# RecognizeApp
+# VPN
+alias recognize_app="sudo openvpn --config client.ovpn --auth-user-pass --auth-retry interact"
+
+# Smartkhata
+alias smartkhata="rake db:drop && rake db:create && rake db:migrate && rake db:seed"
+
+# Recognize
+alias dev_recognize="RAILS_ENV=development bin/rake recognize:init"
+alias test_recognize="RAILS_ENV=test bin/rake recognize:init"
+alias planet_data="rake recognize:prep_planet"
+alias initech_data="rake recognize:prep_initech"
+alias office_data="rake recognize:prep_theoffice"
+
+# Multiple Server
+alias recognize_server="puma --config config/puma.rb --preload -b \"ssl://127.0.0.1:50000?key=$HOME/.ssl/server.key&cert=$HOME/.ssl/server.crt\""
+alias recognize_alt_server="puma --config config/puma.rb --preload -b \"ssl://127.0.0.1:50001?key=$HOME/.ssl/server.key&cert=$HOME/.ssl/server.crt\""
+
 # Web App Deployment
 # Heroku
 alias heroku-deploy="git push heroku master && heroku run rake db:migrate && heroku restart"
@@ -247,11 +267,10 @@ PERL_MM_OPT="INSTALL_BASE=/home/cdrrazan/perl5"; export PERL_MM_OPT;
 alias msql=mysql --user=root --password=msandbox --host=127.0.0.1 --port=5724
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.yarn/bin:$PATH"
 
 # RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # VIPS for Image Processing
 export VIPSHOME=/usr/local
@@ -266,9 +285,10 @@ export PYTHONPATH=$VIPSHOME/lib/python2.7/site-packages
 # zulu init
 
 # xrandr function
-alias monitor="xrandr --output HDMI-0 --scale 1.25x1.25"
+alias monitor="xrandr --output HDMI-0 --scale 1.5x1.5"
 alias display-x="xrandr --dpi 120"
-alias brightness="xrandr --output eDP-1-1 --brightness 0.5"
+alias brightness="xrandr --output eDP-1-1 --brightness 0.7"
+alias dellmon="xrandr --output HDMI-0 --scale 1.2x1.2"
 
 # SERVER SH
 alias alpha="rails s"
@@ -279,3 +299,11 @@ alias zulu="rails s -p 3003"
 # Temporary Alias
 alias rs="git checkout master && rvm use 2.3.1 && rails s"
 alias rr="git checkout rb-upgrade-version && rvm use 2.6.5 && rails s"
+alias process="rake db:drop && rake db:create && rake db:migrate && rake db:seed && rake demo:populate_client_accounts[demo] && rake fetch_companies['demo']"
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+alias fancy='/media/cdrrazan/dev1/Programs/Misc/eDEX-UI.Linux.x86_64.AppImage'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"

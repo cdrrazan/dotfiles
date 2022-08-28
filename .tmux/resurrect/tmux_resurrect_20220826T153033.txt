@@ -1,0 +1,5 @@
+pane	0	1	:sh	0	:-	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	sh	:sh bin/rails_ssl
+pane	0	2	:Viber	1	:*	1	:/opt/viber	1	Viber	:/opt/viber/Viber
+window	0	1	0	:-	b93d,172x43,0,0,0
+window	0	2	1	:*	b941,172x43,0,0,4
+state	0	

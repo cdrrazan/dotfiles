@@ -1,0 +1,10 @@
+pane	0	1	:ngrok	0	:#	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	ngrok	:/snap/ngrok/50/ngrok http -host-header=recognizedev.ngrok.io -subdomain=recognizedev 50000
+pane	0	2	:puma	0	:#-	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	puma	:puma 5.6.4 (tcp://localhost:50000) [recognize]
+pane	0	3	:zsh	0	:#	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	zsh	:
+pane	0	4	:ruby	1	:*	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	ruby	:/home/cdrrazan/.rvm/rubies/ruby-2.7.5/bin/ruby bin/rails routes
+grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox user_path
+window	0	1	0	:#	c8dd,271x66,0,0,0
+window	0	2	0	:#-	c8de,271x66,0,0,1
+window	0	3	0	:#	c8df,271x66,0,0,2
+window	0	4	1	:*	c8e1,271x66,0,0,4
+state	0	

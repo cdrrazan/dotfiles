@@ -1,0 +1,7 @@
+pane	0	1	:sh	0	:	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	sh	:sh bin/rails_ssl
+pane	0	2	:ruby	0	:-	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	ruby	:/home/cdrrazan/.rvm/rubies/ruby-2.7.5/bin/ruby bin/rails c
+pane	0	3	:zsh	1	:*	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	zsh	:
+window	0	1	0	:	c07d,146x35,0,0,0
+window	0	2	0	:-	c07f,146x35,0,0,2
+window	0	3	1	:*	c080,146x35,0,0,3
+state	0	

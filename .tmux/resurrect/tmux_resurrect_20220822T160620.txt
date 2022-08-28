@@ -1,0 +1,9 @@
+pane	0	1	:ngrok	0	:#	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	ngrok	:/snap/ngrok/50/ngrok http -host-header=recognizedev.ngrok.io -subdomain=recognizedev 50000
+pane	0	2	:puma	0	:-	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	puma	:puma 5.6.4 (tcp://localhost:50000) [recognize]
+pane	0	3	:zsh	0	:#	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	zsh	:
+pane	0	4	:zsh	1	:*	1	:/home/cdrrazan/Workspace/Office/Recognize/recognize	1	zsh	:
+window	0	1	0	:#	c4dd,237x55,0,0,0
+window	0	2	0	:-	c4de,237x55,0,0,1
+window	0	3	0	:#	c4df,237x55,0,0,2
+window	0	4	1	:*	c4e1,237x55,0,0,4
+state	0	
